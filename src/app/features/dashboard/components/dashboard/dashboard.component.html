@@ -1,0 +1,29 @@
+<div *ngIf="loading" class="loading-spinner">
+  <p>Cargando datos...</p>
+</div>
+
+<div *ngIf="!loading && error" class="error-message">
+  <p>No se pudieron cargar los datos del dashboard.</p>
+</div>
+
+<div *ngIf="!loading && !error && data">
+  <h1>Dashboard de mortalidad</h1>
+
+  <section>
+    <p>Aves vivas: {{ data?.kpiAves?.avesVivas | number }}</p>
+    <p>Aves muertas: {{ data?.kpiAves?.avesMuertas | number }}</p>
+  </section>
+
+  <section>
+    <span
+      [ngClass]="{
+        'text-emerald-600': data?.kpiMortalidad?.estado === 'normal',
+        'text-amber-500': data?.kpiMortalidad?.estado === 'warning',
+        'text-red-500': data?.kpiMortalidad?.estado === 'critical',
+      }"
+    >
+      {{ data?.kpiMortalidad?.porcentaje }}%
+    </span>
+    <p>Última actualización: {{ data?.ultimaActualizacion }}</p>
+  </section>
+</div>
