@@ -25,3 +25,5 @@ El builder `@angular/build:unit-test` escribe el reporte `json-summary` en `cove
 ## Husky / gobernanza local
 
 Ver `governance.config.json`, `scripts/validate-branch-name.js`, `scripts/validate-commit-msg.js`, `scripts/check-coverage-summary.js`, `scripts/run-sonar-scan.js` y `.husky/*`, implementados según `implementacion-husky-precommit-nestjs-angular.md`. El `docker-compose.yml` de SonarQube vive en `../` (compartido con `backend-nestjs-example`) y no se levanta automáticamente.
+
+## Notas de prueba de Husky
