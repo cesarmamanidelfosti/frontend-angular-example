@@ -4,7 +4,11 @@ Todos los cambios relevantes de este proyecto se documentan en este archivo, sig
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-07-04
+
 ### Added
 
 - [DEMO-1] Scaffolding inicial del frontend Angular (CoreModule, SharedModule, LayoutModule, feature `dashboard` con lazy loading) según `ANGULAR_MIGRATION_COMPLETE.md`.
 - [DEMO-2] Configuración de Husky (`pre-commit`, `commit-msg`, `pre-push`) según `implementacion-husky-precommit-nestjs-angular.md`: validación de rama, mensaje de commit, CHANGELOG, cobertura de tests y Quality Gate de SonarQube.
+
+[1.1.0]: https://github.com/cesarmamanidelfosti/frontend-angular-example/releases/tag/v1.1.0
