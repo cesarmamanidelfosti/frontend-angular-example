@@ -6,10 +6,10 @@ import { DashboardService } from '../../services/dashboard.service';
 import { DashboardDto } from '../../models/dashboard.dto';
 
 const DTO: DashboardDto = {
-  avesVivas: 100,
-  avesMuertas: 5,
-  porcentajeMortalidad: 1,
-  ultimaActualizacion: '2026-07-03T08:00:00.000Z',
+  activeCount: 100,
+  inactiveCount: 5,
+  alertPercentage: 1,
+  lastUpdatedAt: '2026-07-03T08:00:00.000Z',
 };
 
 describe('DashboardComponent', () => {
@@ -26,7 +26,7 @@ describe('DashboardComponent', () => {
 
     expect(fixture.componentInstance.loading).toBe(false);
     expect(fixture.componentInstance.error).toBe(false);
-    expect(fixture.componentInstance.data?.kpiAves.avesVivas).toBe(100);
+    expect(fixture.componentInstance.data?.kpiPrimary.activeCount).toBe(100);
   });
 
   it('flags the error state when the service fails', () => {

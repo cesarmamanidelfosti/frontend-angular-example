@@ -1,35 +1,35 @@
 import { toDashboardViewModel } from './dashboard.mapper';
 import { DashboardDto } from '../models/dashboard.dto';
 
-function buildDto(porcentajeMortalidad: number): DashboardDto {
+function buildDto(alertPercentage: number): DashboardDto {
   return {
-    avesVivas: 100,
-    avesMuertas: 5,
-    porcentajeMortalidad,
-    ultimaActualizacion: '2026-07-03T08:00:00.000Z',
+    activeCount: 100,
+    inactiveCount: 5,
+    alertPercentage,
+    lastUpdatedAt: '2026-07-03T08:00:00.000Z',
   };
 }
 
 describe('toDashboardViewModel', () => {
-  it('marks the estado as normal below 2%', () => {
+  it('marks the status as normal below 2%', () => {
     const vm = toDashboardViewModel(buildDto(1.5));
-    expect(vm.kpiMortalidad.estado).toBe('normal');
+    expect(vm.kpiAlert.status).toBe('normal');
   });
 
-  it('marks the estado as warning between 2% and 5%', () => {
+  it('marks the status as warning between 2% and 5%', () => {
     const vm = toDashboardViewModel(buildDto(3));
-    expect(vm.kpiMortalidad.estado).toBe('warning');
+    expect(vm.kpiAlert.status).toBe('warning');
   });
 
-  it('marks the estado as critical at 5% or above', () => {
+  it('marks the status as critical at 5% or above', () => {
     const vm = toDashboardViewModel(buildDto(6));
-    expect(vm.kpiMortalidad.estado).toBe('critical');
+    expect(vm.kpiAlert.status).toBe('critical');
   });
 
-  it('maps aves and timestamp fields', () => {
+  it('maps counts and timestamp fields', () => {
     const vm = toDashboardViewModel(buildDto(1));
 
-    expect(vm.kpiAves).toEqual({ avesVivas: 100, avesMuertas: 5 });
-    expect(vm.ultimaActualizacion).toBe('2026-07-03T08:00:00.000Z');
+    expect(vm.kpiPrimary).toEqual({ activeCount: 100, inactiveCount: 5 });
+    expect(vm.lastUpdatedAt).toBe('2026-07-03T08:00:00.000Z');
   });
 });

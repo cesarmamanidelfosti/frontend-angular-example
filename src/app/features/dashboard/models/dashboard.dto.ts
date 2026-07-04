@@ -1,6 +1,6 @@
 export interface DashboardDto {
-  avesVivas: number;
-  avesMuertas: number;
-  porcentajeMortalidad: number;
-  ultimaActualizacion: string;
+  activeCount: number;
+  inactiveCount: number;
+  alertPercentage: number;
+  lastUpdatedAt: string;
 }

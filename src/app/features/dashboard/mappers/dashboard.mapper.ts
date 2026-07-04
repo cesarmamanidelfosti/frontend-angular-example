@@ -1,19 +1,19 @@
 import { DashboardDto } from '../models/dashboard.dto';
-import { DashboardViewModel, EstadoMortalidad } from '../models/dashboard.vm';
+import { DashboardViewModel, AlertStatus } from '../models/dashboard.vm';
 
-function resolveEstado(porcentaje: number): EstadoMortalidad {
-  if (porcentaje >= 5) return 'critical';
-  if (porcentaje >= 2) return 'warning';
+function resolveStatus(percentage: number): AlertStatus {
+  if (percentage >= 5) return 'critical';
+  if (percentage >= 2) return 'warning';
   return 'normal';
 }
 
 export function toDashboardViewModel(dto: DashboardDto): DashboardViewModel {
   return {
-    kpiAves: { avesVivas: dto.avesVivas, avesMuertas: dto.avesMuertas },
-    kpiMortalidad: {
-      porcentaje: dto.porcentajeMortalidad,
-      estado: resolveEstado(dto.porcentajeMortalidad),
+    kpiPrimary: { activeCount: dto.activeCount, inactiveCount: dto.inactiveCount },
+    kpiAlert: {
+      percentage: dto.alertPercentage,
+      status: resolveStatus(dto.alertPercentage),
     },
-    ultimaActualizacion: dto.ultimaActualizacion,
+    lastUpdatedAt: dto.lastUpdatedAt,
   };
 }
