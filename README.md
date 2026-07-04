@@ -7,6 +7,7 @@ Proyecto de ejemplo generado para probar `implementacion-husky-precommit-nestjs-
 - **Sin backend real conectado.** `DashboardService` devuelve datos mock locales (`features/dashboard/services/dashboard.service.ts`). `HttpService` y `AuthInterceptor` sí están implementados y listos para apuntar a un backend real (por ejemplo `backend-nestjs-example`) cambiando la base URL.
 - **Login mínimo.** Se agregó `src/app/login/login.component.ts` (no descrito literalmente en el documento) solo para que `AuthGuard` tenga una ruta `/login` real a la cual redirigir; simula la autenticación con `AuthService.login()`.
 - **Arquitectura NgModule intencional.** El proyecto se generó con `--standalone=false` y usa inyección por constructor a propósito, replicando el patrón CoreModule/SharedModule/Feature del documento. Por eso `eslint.config.js` desactiva `@angular-eslint/prefer-standalone`, `@angular-eslint/prefer-inject` y `@angular-eslint/template/prefer-control-flow` (reglas por defecto orientadas al estilo standalone-first de Angular moderno, que contradicen el patrón que este ejemplo busca probar).
+- **Dashboard genérico.** El feature `dashboard` no modela ningún dominio de negocio específico: expone dos KPIs abstractos (`kpiPrimary` con `activeCount`/`inactiveCount`, `kpiAlert` con `percentage`/`status`), pensado para adaptarse a cualquier caso de uso real sin arrastrar nomenclatura de un proyecto puntual.
 
 ## Comandos principales
 

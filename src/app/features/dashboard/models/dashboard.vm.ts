@@ -1,13 +1,13 @@
-export type EstadoMortalidad = 'normal' | 'warning' | 'critical';
+export type AlertStatus = 'normal' | 'warning' | 'critical';
 
 export interface DashboardViewModel {
-  kpiAves: {
-    avesVivas: number;
-    avesMuertas: number;
+  kpiPrimary: {
+    activeCount: number;
+    inactiveCount: number;
   };
-  kpiMortalidad: {
-    porcentaje: number;
-    estado: EstadoMortalidad;
+  kpiAlert: {
+    percentage: number;
+    status: AlertStatus;
   };
-  ultimaActualizacion: string;
+  lastUpdatedAt: string;
 }

@@ -10,12 +10,12 @@ describe('DashboardService', () => {
   });
 
   it('emits the mock dashboard data synchronously', () => {
-    let received: { avesVivas: number; ultimaActualizacion: string } | undefined;
+    let received: { activeCount: number; lastUpdatedAt: string } | undefined;
     service.getData().subscribe((dto) => {
       received = dto;
     });
 
-    expect(received?.avesVivas).toBeGreaterThan(0);
-    expect(received?.ultimaActualizacion).toBeTruthy();
+    expect(received?.activeCount).toBeGreaterThan(0);
+    expect(received?.lastUpdatedAt).toBeTruthy();
   });
 });
